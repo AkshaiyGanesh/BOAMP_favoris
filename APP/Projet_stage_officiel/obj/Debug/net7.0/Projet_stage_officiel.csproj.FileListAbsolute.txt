@@ -1,0 +1,15 @@
+/Users/akshaiyganesh/Desktop/Official Stage/porjet/Projet_stage_officiel/Projet_stage_officiel/bin/Debug/net7.0/Projet_stage_officiel
+/Users/akshaiyganesh/Desktop/Official Stage/porjet/Projet_stage_officiel/Projet_stage_officiel/bin/Debug/net7.0/Projet_stage_officiel.deps.json
+/Users/akshaiyganesh/Desktop/Official Stage/porjet/Projet_stage_officiel/Projet_stage_officiel/bin/Debug/net7.0/Projet_stage_officiel.runtimeconfig.json
+/Users/akshaiyganesh/Desktop/Official Stage/porjet/Projet_stage_officiel/Projet_stage_officiel/bin/Debug/net7.0/Projet_stage_officiel.dll
+/Users/akshaiyganesh/Desktop/Official Stage/porjet/Projet_stage_officiel/Projet_stage_officiel/bin/Debug/net7.0/Projet_stage_officiel.pdb
+/Users/akshaiyganesh/Desktop/Official Stage/porjet/Projet_stage_officiel/Projet_stage_officiel/obj/Debug/net7.0/Projet_stage_officiel.csproj.AssemblyReference.cache
+/Users/akshaiyganesh/Desktop/Official Stage/porjet/Projet_stage_officiel/Projet_stage_officiel/obj/Debug/net7.0/Projet_stage_officiel.GeneratedMSBuildEditorConfig.editorconfig
+/Users/akshaiyganesh/Desktop/Official Stage/porjet/Projet_stage_officiel/Projet_stage_officiel/obj/Debug/net7.0/Projet_stage_officiel.AssemblyInfoInputs.cache
+/Users/akshaiyganesh/Desktop/Official Stage/porjet/Projet_stage_officiel/Projet_stage_officiel/obj/Debug/net7.0/Projet_stage_officiel.AssemblyInfo.cs
+/Users/akshaiyganesh/Desktop/Official Stage/porjet/Projet_stage_officiel/Projet_stage_officiel/obj/Debug/net7.0/Projet_stage_officiel.csproj.CoreCompileInputs.cache
+/Users/akshaiyganesh/Desktop/Official Stage/porjet/Projet_stage_officiel/Projet_stage_officiel/obj/Debug/net7.0/Projet_stage_officiel.dll
+/Users/akshaiyganesh/Desktop/Official Stage/porjet/Projet_stage_officiel/Projet_stage_officiel/obj/Debug/net7.0/refint/Projet_stage_officiel.dll
+/Users/akshaiyganesh/Desktop/Official Stage/porjet/Projet_stage_officiel/Projet_stage_officiel/obj/Debug/net7.0/Projet_stage_officiel.pdb
+/Users/akshaiyganesh/Desktop/Official Stage/porjet/Projet_stage_officiel/Projet_stage_officiel/obj/Debug/net7.0/Projet_stage_officiel.genruntimeconfig.cache
+/Users/akshaiyganesh/Desktop/Official Stage/porjet/Projet_stage_officiel/Projet_stage_officiel/obj/Debug/net7.0/ref/Projet_stage_officiel.dll
