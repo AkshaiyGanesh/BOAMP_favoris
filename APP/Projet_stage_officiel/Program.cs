@@ -25,20 +25,24 @@ namespace projet_stage
                 Console.WriteLine($"Contenu de l'url : \n\n{contenue_url_json}");
 
                 // je crée le nom fichier.txt
-                string file_name = "json_api_boamp.txt";
-
-                //je déplace le fichier vers ou je veux 
-                string sourcefilename = @"/Users/akshaiyganesh/Desktop/Official Stage/porjet/Projet_stage_officiel/Projet_stage_officiel/bin/Debug/net7.0/json_api_boamp.txt";
-                string destFileName = @"/Users/akshaiyganesh/Desktop/Official Stage/porjet/Projet_stage_officiel/json_api_boamp.txt";
-                File.Move(sourcefilename, destFileName);
-
-                
+                string file_name = "json_api_boamp.json";
 
                 // J'écris le contenu du boamp (JSON)
                 File.WriteAllText(file_name, contenue_url_json);
 
+                //je déplace le fichier vers ou je veux 
+                string sourceFileName = @"/Users/akshaiyganesh/Desktop/stage_boamp/BOAMP_favoris/APP/Projet_stage_officiel/bin/Debug/net7.0/json_api_boamp.json";
+                string destFileName = @"/Users/akshaiyganesh/Desktop/stage_boamp/BOAMP_favoris/APP/json_api_boamp.json"; // Assurez-vous que le chemin du fichier de destination est correct et inclut le nom du fichier
+
+                // Vérifie si le fichier existe déjà et le supprime dans ce cas
+                if (File.Exists(destFileName))
+                {
+                    File.Delete(destFileName);
+                }
 
                 Console.WriteLine($"Le contenu JSON a été écrit dans le fichier {file_name}");
+
+                File.Move(sourceFileName, destFileName);
             }
             catch (WebException ex)
             {
@@ -54,3 +58,5 @@ namespace projet_stage
         }
     }
 }
+
+
