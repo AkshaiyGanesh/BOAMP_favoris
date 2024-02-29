@@ -1,0 +1,29 @@
+
+h1 {
+    color: brown;
+    text-align: center;
+}
+
+.Bouton_P_fav{
+    color: blueviolet;
+    padding: 15px 32px;
+    float: right;
+}
+
+#monBouton {
+    position: absolute;
+    right: 0;
+}
+table{
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid black;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
