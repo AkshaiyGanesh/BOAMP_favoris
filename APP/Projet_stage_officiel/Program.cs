@@ -8,11 +8,7 @@ namespace projet_stage
     {
         static void Main(string[] args)
         {
-            // []
 
-            Console.WriteLine("coucou");
-            Console.WriteLine("hello");
-            Console.WriteLine("Le projet officiel");
 
             // Je crée l'url
 
