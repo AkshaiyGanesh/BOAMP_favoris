@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Net;
-using System.IO; 
+using System.IO;
 
 namespace projet_stage
 {
@@ -8,55 +8,49 @@ namespace projet_stage
     {
         static void Main(string[] args)
         {
+            // Nombre d'offres par défaut
+            int nombreOffres = 20;
+            // Chemin du fichier par défaut (dossier courant)
+            string cheminFichier = "/Users/akshaiyganesh/Desktop/stage_boamp/BOAMP_favoris/APP/json_api_boamp.json";
 
-
-            // Je crée l'url
-
-            string url_site_moap = "https://www.boamp.fr/api/explore/v2.1/catalog/datasets/boamp/records?limit=20";
-
-            var webClient = new WebClient();
-
-            Console.WriteLine("Installation en cours ...");
-
-            try
+            // Vérifier s'il y a des arguments
+            if (args.Length > 0)
             {
-                var contenue_url_json = webClient.DownloadString(url_site_moap);
-
-                Console.WriteLine($"Contenu de l'url : \n\n{contenue_url_json}");
-
-                // je crée le nom fichier.txt
-                string file_name = "json_api_boamp.json";
-
-                // J'écris le contenu du boamp (JSON)
-                File.WriteAllText(file_name, contenue_url_json);
-
-                //je déplace le fichier vers ou je veux 
-                string sourceFileName = @"/Users/akshaiyganesh/Desktop/stage_boamp/BOAMP_favoris/APP/Projet_stage_officiel/bin/Debug/net7.0/json_api_boamp.json";
-                string destFileName = @"/Users/akshaiyganesh/Desktop/stage_boamp/BOAMP_favoris/APP/json_api_boamp.json"; // Assurez-vous que le chemin du fichier de destination est correct et inclut le nom du fichier
-
-                // Vérifie si le fichier existe déjà et le supprime dans ce cas
-                if (File.Exists(destFileName))
+                // Premier argument : nombre d'offres
+                if (int.TryParse(args[0], out int result))
                 {
-                    File.Delete(destFileName);
+                    nombreOffres = result;
+                }
+                else
+                {
+                    Console.WriteLine("Le premier argument n'est pas un nombre valide. Utilisation de la valeur par défaut.");
                 }
 
-                Console.WriteLine($"Le contenu JSON a été écrit dans le fichier {file_name}");
-
-                File.Move(sourceFileName, destFileName);
-            }
-            catch (WebException ex)
-            {
-                Console.WriteLine("Une exception WebException a été capturée !");
-                Console.WriteLine(ex.Message);
-                if (ex.Response != null)
+                // Deuxième argument : chemin du fichier
+                if (args.Length > 1)
                 {
-                    Console.WriteLine("Réponse du serveur :");
-                    Console.WriteLine(new StreamReader(ex.Response.GetResponseStream()).ReadToEnd());
+                    cheminFichier = args[1];
                 }
             }
 
+            // Construire l'URL avec le nombre d'offres
+            string url_site_moap = $"https://www.boamp.fr/api/explore/v2.1/catalog/datasets/boamp/records?limit={nombreOffres}";
+
+            // Télécharger les données et écrire dans le fichier spécifié
+            using (var webClient = new WebClient())
+            {
+                try
+                {
+                    string contenu_url_json = webClient.DownloadString(url_site_moap);
+                    File.WriteAllText(cheminFichier, contenu_url_json);
+                    Console.WriteLine($"Les données ont été sauvegardées dans : {cheminFichier}");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Une erreur est survenue :");
+                    Console.WriteLine(ex.Message);
+                }
+            }
         }
     }
 }
-
-
