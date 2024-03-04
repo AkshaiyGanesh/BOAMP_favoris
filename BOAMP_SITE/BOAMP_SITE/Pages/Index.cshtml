@@ -1,0 +1,73 @@
+﻿
+
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "page Favoris";
+}
+
+<style>
+    h1 {
+        color: brown;
+        text-align: center;
+    }
+
+    .Bouton_P_fav {
+        color: blueviolet;
+        padding: 15px 32px;
+        float: right;
+    }
+
+    #monBouton {
+        position: absolute;
+        right: 0;
+    }
+
+    table {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .Bouton_P_fav {
+        margin-bottom: 20px;
+    }
+
+    th, td {
+        border: 1px solid black;
+        text-align: left;
+        padding: 8px;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
+
+<div class="text-center">
+    <h1 class="display-4">Accueil</h1>
+</div>
+
+<script>function redirectToOtherPage() {
+    window.location.href = 'favoris';
+    }</script>
+
+<div>
+    <button onclick="redirectToOtherPage()" class="Bouton_P_fav">Pages Des favoris</button>
+    <br><br>
+
+    <table>
+        <tr>
+            <th>id avis</th>
+            <th>objet</th>
+            <th>date diffusion</th>
+        </tr>
+
+        <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+
+    </table>
+</div>
+
