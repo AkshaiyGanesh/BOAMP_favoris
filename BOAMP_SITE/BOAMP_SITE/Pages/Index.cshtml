@@ -1,10 +1,11 @@
-﻿
+﻿@page
+    @model BOAMP_SITE.Pages.IndexModel
+    @{
+        ViewData["Title"] = "Accueil";
+    }
 
-@page
-@model IndexModel
-@{
-    ViewData["Title"] = "page Favoris";
-}
+
+
 
 <style>
     h1 {
@@ -48,26 +49,31 @@
 </div>
 
 <script>function redirectToOtherPage() {
-    window.location.href = 'favoris';
+        window.location.href = 'favoris';
     }</script>
 
 <div>
     <button onclick="redirectToOtherPage()" class="Bouton_P_fav">Pages Des favoris</button>
     <br><br>
 
+
+
     <table>
-        <tr>
-            <th>id avis</th>
-            <th>objet</th>
-            <th>date diffusion</th>
-        </tr>
-
-        <tr>
-            <th></th>
-            <th></th>
-            <th></th>
-        </tr>
-
+        <thead>
+            <tr>
+                <th>ID Avis</th>
+                <th>Object</th>
+                <th>Date de diffusion</th>
+            </tr>
+        </thead>
+        @*<tbody>
+            @foreach (var annonce in Model.Annonces)
+            {
+                <tr>
+                    <td>@annonce.Idweb</td>
+                    <td>@annonce.Objet</td>
+                    <td>@annonce.Dateparution</td>
+                </tr>
+            }
+        </tbody>*@
     </table>
-</div>
-

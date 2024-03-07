@@ -1,4 +1,46 @@
 ﻿<Properties StartupConfiguration="{7B337A1A-B951-4A14-B76F-3F6E908C6133}|Default">
+  <MonoDevelop.Ide.ItemProperties.BOAMP__SITE PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workbench ActiveDocument="BOAMP_SITE/Pages/Index.cshtml.cs">
+    <Files>
+      <File FileName="BOAMP_SITE/Pages/Index.cshtml" Line="69" Column="16" />
+      <File FileName="BOAMP_SITE/Pages/Index.cshtml.cs" Line="53" Column="67" />
+      <File FileName="BOAMP_SITE/Pages/favoris.cshtml" Line="1" Column="1" />
+      <File FileName="BOAMP_SITE/Pages/Privacy.cshtml" Line="1" Column="1" />
+      <File FileName="BOAMP_SITE/Pages/Privacy.cshtml.cs" Line="1" Column="1" />
+      <File FileName="BOAMP_SITE/Pages/_ViewStart.cshtml" Line="1" Column="1" />
+      <File FileName="BOAMP_SITE/Pages/_ViewImports.cshtml" Line="1" Column="1" />
+      <File FileName="BOAMP_SITE/Pages/Error.cshtml" Line="1" Column="1" />
+      <File FileName="BOAMP_SITE/appsettings.json" Line="1" Column="1" />
+      <File FileName="BOAMP_SITE/Program.cs" Line="1" Column="1" />
+      <File FileName="BOAMP_SITE/Properties/launchSettings.json" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="BOAMP_SITE" expanded="True">
+            <Node name="BOAMP_SITE">
+              <Node name="Dependencies" expanded="True">
+                <Node name="PackageDependencies" expanded="True" />
+              </Node>
+              <Node name="Pages" expanded="True">
+                <Node name="Index.cshtml" expanded="True">
+                  <Node name="Index.cshtml.cs" selected="True" />
+                </Node>
+              </Node>
+              <Node name="Properties" expanded="True" />
+              <Node name="wwwroot" expanded="True">
+                <Node name="css" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.BOAMP__SITE FirstBuild="True" />
 </Properties>
