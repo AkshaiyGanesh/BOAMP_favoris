@@ -62,6 +62,7 @@
     <table>
         <thead>
             <tr>
+                <th></th>
                 <th>ID Avis</th>
                 <th>Object</th>
                 <th>Date de diffusion</th>
@@ -71,6 +72,11 @@
             @foreach (var annonce in Model.Annonces)
             {
                 <tr>
+                    <td>
+                        <form method="post" asp-action="AjouterAuxFavoris" asp-route-id="@annonce.Idweb">
+                            <button type="submit" class="btn btn-primary">Ajouter aux Favoris</button>
+                        </form>
+                    </td>
                     <td>@annonce.Idweb</td>
                     <td>@annonce.Objet</td>
                     <td>@annonce.Dateparution</td>
