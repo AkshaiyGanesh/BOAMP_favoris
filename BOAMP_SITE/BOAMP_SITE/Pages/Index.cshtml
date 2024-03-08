@@ -1,8 +1,9 @@
 ﻿@page
-    @model BOAMP_SITE.Pages.IndexModel
-    @{
-        ViewData["Title"] = "Accueil";
-    }
+@model BOAMP_SITE.Pages.IndexModel2
+
+@{
+    ViewData["Title"] = "Accueil";
+}
 
 
 
@@ -66,7 +67,7 @@
                 <th>Date de diffusion</th>
             </tr>
         </thead>
-        @*<tbody>
+        <tbody>
             @foreach (var annonce in Model.Annonces)
             {
                 <tr>
@@ -75,5 +76,6 @@
                     <td>@annonce.Dateparution</td>
                 </tr>
             }
-        </tbody>*@
+        </tbody>
     </table>
+</div>

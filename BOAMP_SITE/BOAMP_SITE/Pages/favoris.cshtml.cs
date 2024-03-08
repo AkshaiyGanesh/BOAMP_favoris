@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Newtonsoft.Json;
 
 namespace BOAMP_SITE.Pages;
 
@@ -12,9 +13,12 @@ public class IndexModel : PageModel
         _logger = logger;
     }
 
+
     public void OnGet()
     {
-
+      
+       
     }
+
 }
 
