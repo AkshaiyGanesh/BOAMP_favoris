@@ -7,6 +7,9 @@ using System.IO;
 using System;
 using Newtonsoft.Json.Linq;
 using Microsoft.AspNetCore.Http;
+using BOAMP_SITE.Data;
+using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
 
 namespace BOAMP_SITE.Pages
 {
@@ -32,12 +35,14 @@ namespace BOAMP_SITE.Pages
     public class IndexModel2 : PageModel
     {
         private readonly ILogger<IndexModel2> _logger; // Assurez-vous que le type générique correspond au nom de la classe actuelle
+        private readonly FavorisDbContext _context;
 
         public List<Annonce> Annonces { get; set; }
 
-        public IndexModel2(ILogger<IndexModel2> logger) // Modifier le type générique pour correspondre à la classe actuelle
+        public IndexModel2(ILogger<IndexModel2> logger, FavorisDbContext context) // Modifier le type générique pour correspondre à la classe actuelle
         {
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            _context = context;
             Annonces = new List<Annonce>();
         }
 
@@ -70,6 +75,22 @@ namespace BOAMP_SITE.Pages
             //var annoncesJson = jsonObject["results"];
 
             
+        }
+
+        public async Task<IActionResult> OnPostAddToFavoritesAsync(string idAvis, string objet, DateTime dateFinDiffusion)
+        {
+            var newFavori = new Favori
+            {
+                IdAvis = idAvis,
+                Objet = objet,
+                DateFinDiffusion = dateFinDiffusion,
+                DateAjout = DateTime.UtcNow // Utilisez DateTime.Now si vous voulez l'heure locale
+            };
+
+            _context.Favoris.Add(newFavori); // Ajoutez le nouvel objet à votre DbSet de Favoris
+            await _context.SaveChangesAsync(); // Sauvegardez les changements dans la base de données
+
+            return RedirectToPage(); // Redirigez l'utilisateur vers la même page
         }
 
     }
