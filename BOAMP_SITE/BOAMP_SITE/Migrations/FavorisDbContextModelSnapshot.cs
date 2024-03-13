@@ -29,6 +29,10 @@ namespace BOAMP_SITE.Migrations
                     b.Property<DateTime>("DateFinDiffusion")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("IdAvis")
                         .IsRequired()
                         .HasColumnType("TEXT");
