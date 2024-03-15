@@ -56,16 +56,26 @@
         margin-left: 10px;
     }
 
-    /* Optionnel : classes CSS spécifiques pour les boutons */
-    /*
-    .btn-envoyer-mail {
-     margin-right: 10px;
+    .bouton_mail {
+        background-color: #3110c6;
+        color: #ffffff;
+        border: 1px solid #ffffff;
+        border-radius: 5px;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        font-weight: bold;
+        padding: 10px 20px;
     }
 
-    .btn-email-chatgpt {
-     margin-left: 10px;
-    }
-    */
+        .bouton_mail:hover {
+            background-color: #1d3875;
+        }
+
+        .bouton_mail:active {
+            background-color: #152278;
+        }
+
 </style>
 
 <div class="text-center">
@@ -95,7 +105,9 @@
                 <tr>
                     <td class="actions">
                         <form method="post" asp-page-handler="ActionHandler" asp-route-id="@favori.Id">
-                            <button type="submit" name="action" value="SendEmail" class="btn btn-primary">Envoyer le mail</button>
+                            <a href="mailto:akshaiysp@gmail.com">
+                                <button type="button" class="bouton_mail">Envoyer un Mail</button>
+                            </a>
                             <button type="submit" name="action" value="ChatGPTEmail" class="btn btn-info">Ecrire avec ChatGPT</button>
                         </form>
                     </td>
