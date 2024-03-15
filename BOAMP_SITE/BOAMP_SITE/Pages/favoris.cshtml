@@ -1,0 +1,120 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "page des favoris";
+}
+
+<style>
+    h1 {
+        color: brown;
+        text-align: center;
+    }
+
+    .Bouton_P_fav {
+        color: blueviolet;
+        padding: 15px 32px;
+        float: right;
+    }
+
+    #monBouton {
+        position: absolute;
+        right: 0;
+    }
+
+    table {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .Bouton_P_fav {
+        margin-bottom: 20px;
+    }
+
+    th, td {
+        border: 1px solid black;
+        text-align: left;
+        padding: 8px;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    /* Alignement des cases "Actions" et des boutons */
+    .actions {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    /* Augmenter l'espace entre les boutons */
+    .btn-primary {
+        margin-right: 10px;
+    }
+
+    .btn-info {
+        margin-left: 10px;
+    }
+
+    /* Optionnel : classes CSS spécifiques pour les boutons */
+    /*
+    .btn-envoyer-mail {
+     margin-right: 10px;
+    }
+
+    .btn-email-chatgpt {
+     margin-left: 10px;
+    }
+    */
+</style>
+
+<div class="text-center">
+    <h1 class="display-4">Favoris</h1>
+</div>
+
+<div>
+    <button onclick="redirectToOtherPage()" class="Bouton_P_fav">Pages D'accueil</button>
+    <br><br>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Action</th>
+                <th>État</th>
+                <th>Last_update</th>
+                <th>Objet</th>
+                <th>Date fin</th>
+                <th>Resume ChatGpt</th>
+                <th>email</th>
+                <th>ID_avis</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var favori in Model.Favoris)
+            {
+                <tr>
+                    <td class="actions">
+                        <form method="post" asp-page-handler="ActionHandler" asp-route-id="@favori.Id">
+                            <button type="submit" name="action" value="SendEmail" class="btn btn-primary">Envoyer le mail</button>
+                            <button type="submit" name="action" value="ChatGPTEmail" class="btn btn-info">Ecrire avec ChatGPT</button>
+                        </form>
+                    </td>
+
+                    <td>@* État de l'annonce ici *@</td>
+                    <td>@favori.DateAjout.ToString("dd/MM/yyyy HH:mm")</td>
+                    <td>@favori.Objet</td>
+                    <td>@favori.DateFinDiffusion.ToString("dd/MM/yyyy")</td>
+                    <td></td>
+                    <td></td>
+                    <td>@favori.IdAvis</td>
+                    <td>
+                        <form method="post" asp-page-handler="RemoveFromFavorites" asp-route-id="@favori.Id">
+                            <button type="submit" class="btn btn-danger">Supprimer</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

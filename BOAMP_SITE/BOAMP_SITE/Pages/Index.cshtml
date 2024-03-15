@@ -1,0 +1,136 @@
+﻿@page
+@model BOAMP_SITE.Pages.IndexModel2
+
+@{
+    ViewData["Title"] = "Accueil";
+}
+
+
+
+
+<style>
+    h1 {
+        color: brown;
+        text-align: center;
+    }
+
+    .boutonFavoris { /* Remplace cela par la classe ou l'ID de ton bouton */
+        padding: 10px 20px; /* Espacement vertical et horizontal */
+        font-size: 1.2em; /* Taille plus grande de la police */
+        border-radius: 5px; /* Coins arrondis, ajuste selon tes préférences */
+        float: right;
+        /* Si tu veux définir une largeur/hauteur spécifique, tu peux les ajouter comme ceci : */
+        /* width: 150px; */
+        /* height: 50px; */
+    }
+
+
+
+    table {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    th, td {
+        border: 1px solid black;
+        text-align: left;
+        padding: 8px;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    body {
+        background-image: url('pexels-sora-shimazaki-5673488.jpg'); /* correction ici */
+        background-repeat: repeat; /* répéter l'image dans tout le conteneur */
+        background-size: 100%;
+    }
+
+    .content-container {
+        width: 90%; /* Ajustez cette valeur selon vos besoins */
+        margin: auto;
+        background-color: white;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+
+    .table-container {
+        max-width: 100%; /* ou la largeur maximale que vous voulez pour votre tableau */
+        overflow-x: auto; /* active le défilement horizontal si nécessaire */
+        white-space: nowrap; /* pour s'assurer que les lignes du tableau ne passent pas à la ligne suivante */
+    }
+
+    footer {
+        background-color: #fff; /* ou toute autre couleur de fond */
+        padding: 10px 0;
+        /* ajustez le padding selon vos besoins */
+        /* autres styles pour le footer */
+    }
+
+
+    .content-container {
+        padding-bottom: 0; /* Assurez-vous qu'il n'y a pas de padding inutile en bas */
+    }
+
+    footer {
+        margin-top: 0; /* Assurez-vous qu'il n'y a pas de marge au-dessus du footer */
+    }
+</style>
+
+<script>function redirectToOtherPage() {
+        window.location.href = 'favoris';
+    }</script>
+
+
+
+<div class="content-container">
+    <div class="text-center">
+        <h1 class="display-4">Accueil</h1>
+    </div>
+
+    <div>
+
+        <div class="table-scroll">
+            <button onclick="redirectToOtherPage()" class="boutonFavoris">Pages Des favoris</button>
+            <br><br>
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>ID Avis</th>
+                        <th>Object</th>
+                        <th>Date de diffusion</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var annonce in Model.Annonces)
+                    {
+                        <tr>
+                            <td>
+                                <form method="post" asp-page-handler="AddToFavorites">
+                                    <input type="hidden" name="idAvis" value="@annonce.Idweb" />
+                                    <input type="hidden" name="objet" value="@annonce.Objet" />
+                                    <input type="hidden" name="dateFinDiffusion" value="@annonce.Dateparution" />
+                                    <button type="submit"
+                                            class="btn @(annonce.EstEnFavoris ? "btn-secondary" : "btn-primary")">
+                                        @(annonce.EstEnFavoris ? "Déjà en favoris" : "Ajouter aux Favoris")
+                                    </button>
+                                </form>
+                            </td>
+                            <td>@annonce.Idweb</td>
+                            <td>@annonce.Objet</td>
+                            <td>@annonce.Dateparution</td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
