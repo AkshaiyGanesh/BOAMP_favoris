@@ -30,6 +30,7 @@ namespace BOAMP_SITE.Pages
         public string Idweb { get; set; }
         public string Objet { get; set; }
         public string Dateparution { get; set; }
+        public bool EstEnFavoris { get; set; }
         // Si vous utilisez une version de C# antérieure à 8.0, vous ne pourrez pas utiliser la syntaxe nullable pour les types de référence.
     }
 
@@ -61,6 +62,7 @@ namespace BOAMP_SITE.Pages
             JArray results = (JArray)jsonObject["results"];
             Annonces = new List<Annonce>();
 
+
             foreach (var item in results)
             {
                 // Créez un nouvel objet Annonce pour chaque élément dans le tableau JSON
@@ -70,6 +72,11 @@ namespace BOAMP_SITE.Pages
                     (DateTime.Parse(item["dateparution"].ToString())).ToString("dd/MM/yyyy") // Assurez-vous que le format de date correspond à votre besoin
                 );
                 Annonces.Add(annonce);
+            }
+
+            foreach (var annonce in Annonces)
+            {
+                annonce.EstEnFavoris = _context.Favoris.Any(f => f.IdAvis == annonce.Idweb);
             }
 
             // Supposons que les annonces se trouvent sous la clé "annonces"

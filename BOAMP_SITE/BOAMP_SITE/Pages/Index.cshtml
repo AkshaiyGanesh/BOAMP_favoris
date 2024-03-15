@@ -114,7 +114,10 @@
                                     <input type="hidden" name="idAvis" value="@annonce.Idweb" />
                                     <input type="hidden" name="objet" value="@annonce.Objet" />
                                     <input type="hidden" name="dateFinDiffusion" value="@annonce.Dateparution" />
-                                    <button type="submit" class="btn btn-primary">Ajouter aux Favoris</button>
+                                    <button type="submit"
+                                            class="btn @(annonce.EstEnFavoris ? "btn-secondary" : "btn-primary")">
+                                        @(annonce.EstEnFavoris ? "Déjà en favoris" : "Ajouter aux Favoris")
+                                    </button>
                                 </form>
                             </td>
                             <td>@annonce.Idweb</td>

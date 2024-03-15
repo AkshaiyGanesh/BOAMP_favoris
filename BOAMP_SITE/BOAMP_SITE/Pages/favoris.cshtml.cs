@@ -27,4 +27,17 @@ public class IndexModel : PageModel
     {
         Favoris = _context.Favoris.ToList();
     }
+
+    public async Task<IActionResult> OnPostRemoveFromFavoritesAsync(int id)
+    {
+        var favori = await _context.Favoris.FindAsync(id);
+        if (favori != null)
+        {
+            _context.Favoris.Remove(favori);
+            await _context.SaveChangesAsync();
+        }
+
+        return RedirectToPage();
+    }
+
 }
