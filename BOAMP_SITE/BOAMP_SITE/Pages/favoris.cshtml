@@ -1,63 +1,63 @@
 ﻿@page
-@model FavorisModel
+@model IndexModel
 @{
     ViewData["Title"] = "page des favoris";
 }
 
 <style>
-      h1 {
-          color: brown;
-          text-align: center;
-      }
+    h1 {
+        color: brown;
+        text-align: center;
+    }
 
-      .Bouton_P_fav {
-          color: blueviolet;
-          padding: 15px 32px;
-          float: right;
-      }
+    .Bouton_P_fav {
+        color: blueviolet;
+        padding: 15px 32px;
+        float: right;
+    }
 
-      #monBouton {
-          position: absolute;
-          right: 0;
-      }
+    #monBouton {
+        position: absolute;
+        right: 0;
+    }
 
-      table {
-          width: 100%;
-          margin-top: 20px;
-      }
+    table {
+        width: 100%;
+        margin-top: 20px;
+    }
 
-      .Bouton_P_fav {
-          margin-bottom: 20px;
-      }
+    .Bouton_P_fav {
+        margin-bottom: 20px;
+    }
 
-      th, td {
-          border: 1px solid black;
-          text-align: left;
-          padding: 8px;
-      }
+    th, td {
+        border: 1px solid black;
+        text-align: left;
+        padding: 8px;
+    }
 
-      th {
-          background-color: #f2f2f2;
-      }
+    th {
+        background-color: #f2f2f2;
+    }
 
-      /* Alignement des cases "Actions" et des boutons */
-      .actions {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-      }
+    /* Alignement des cases "Actions" et des boutons */
+    .actions {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
 
-      /* Augmenter l'espace entre les boutons */
-      .btn-primary {
-          margin-right: 10px;
-      }
+    /* Augmenter l'espace entre les boutons */
+    .btn-primary {
+        margin-right: 10px;
+    }
 
-      .btn-info {
-          margin-left: 10px;
-      }
+    .btn-info {
+        margin-left: 10px;
+    }
 
-      /* Optionnel : classes CSS spécifiques pour les boutons */
-      /*
+    /* Optionnel : classes CSS spécifiques pour les boutons */
+    /*
     .btn-envoyer-mail {
      margin-right: 10px;
     }

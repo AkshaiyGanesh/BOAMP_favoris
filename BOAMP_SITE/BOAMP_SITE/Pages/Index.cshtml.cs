@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
@@ -74,7 +75,7 @@ namespace BOAMP_SITE.Pages
             // Supposons que les annonces se trouvent sous la clé "annonces"
             //var annoncesJson = jsonObject["results"];
 
-            
+
         }
 
         public async Task<IActionResult> OnPostAddToFavoritesAsync(string idAvis, string objet, DateTime dateFinDiffusion)
