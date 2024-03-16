@@ -19,19 +19,23 @@ namespace BOAMP_SITE.Pages
     public class Annonce
     {
 
-        public Annonce(string Idweb, string Objet, string Dateparution)
-        {
-            this.Idweb = Idweb;
-            this.Objet = Objet;
-            this.Dateparution = Dateparution;
-
-        }
+        
 
         public string Idweb { get; set; }
         public string Objet { get; set; }
         public string Dateparution { get; set; }
         public bool EstEnFavoris { get; set; }
+        public string Email { get; set; }
         // Si vous utilisez une version de C# antérieure à 8.0, vous ne pourrez pas utiliser la syntaxe nullable pour les types de référence.
+
+        public Annonce(string Idweb, string Objet, string Dateparution, string email)
+        {
+            this.Idweb = Idweb;
+            this.Objet = Objet;
+            this.Dateparution = Dateparution;
+            this.Email = email;
+
+        }
     }
 
     public class IndexModel2 : PageModel
@@ -62,17 +66,28 @@ namespace BOAMP_SITE.Pages
             JArray results = (JArray)jsonObject["results"];
             Annonces = new List<Annonce>();
 
+            foreach(var item in results)
+{
+                // Assurer que 'donnees' est une chaîne JSON valide
+                var donneesJson = item["donnees"]?.ToString() ?? "{}"; // Convertit le JToken en chaîne JSON si non null
+                var donnees = JsonConvert.DeserializeObject<JObject>(donneesJson); // Désérialiser la chaîne JSON en objet
 
-            foreach (var item in results)
-            {
-                // Créez un nouvel objet Annonce pour chaque élément dans le tableau JSON
+                // Extraire l'email de 'donnees'
+                var email = donnees["IDENT"]?["MEL"]?.ToString() ?? "Cette annonce ne contient pas de Mail";
+
+                // Créer l'objet Annonce avec l'email
                 Annonce annonce = new Annonce(
                     item["idweb"].ToString(),
                     item["objet"].ToString(),
-                    (DateTime.Parse(item["dateparution"].ToString())).ToString("dd/MM/yyyy") // Assurez-vous que le format de date correspond à votre besoin
+                    DateTime.Parse(item["dateparution"].ToString()).ToString("dd/MM/yyyy"),
+                    email // Assure-toi que ton constructeur Annonce accepte cet argument
                 );
+
+                // Ajouter l'annonce à la liste
                 Annonces.Add(annonce);
             }
+
+
 
             foreach (var annonce in Annonces)
             {

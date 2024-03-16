@@ -117,7 +117,7 @@
                     <td>@favori.Objet</td>
                     <td>@favori.DateFinDiffusion.ToString("dd/MM/yyyy")</td>
                     <td></td>
-                    <td></td>
+                    <td>@favori.Email</td>
                     <td>@favori.IdAvis</td>
                     <td>
                         <form method="post" asp-page-handler="RemoveFromFavorites" asp-route-id="@favori.Id">
